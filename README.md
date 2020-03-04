@@ -72,7 +72,7 @@ public void Deserialize()
 - SHA256 - 687 ms
 - String - 1 279 ms
 - Deserialize - 645 ms
-#### .NET Core 3.1.1
+#### .NET Core 3.0 (prev 8)
 - Enum -  129 ns
 - Linq - 158 ms
 - SHA256 - 49 ms
