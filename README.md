@@ -1,7 +1,9 @@
 # DotNetFrameworkVsCore
-Code to compare performance of .NET Framework (4.8) and .NET Core (3.1.1)
+Small console application to compare performance of .NET Framework (4.8) and .NET Core (3.1.1). Common benchmarks are written in .NET Standard. App contains 5 benchmarks to test performance of .NET Framework (4.8) and .NET Core (3.1.1). Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
 
-![Chart](img/chart1.png)
+
+
+## Code details
 
 ### Enum:
 ```csharp
@@ -10,16 +12,23 @@ public DayOfWeek EnumParse() => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), "Thursd
 
 ### Linq:
 ```csharp
+//IEnumerable<int> _tenMillionToZero = Enumerable.Range(0, 10_000_000).Reverse();
+
 public void LinqOrderBySkipFirst() => _tenMillionToZero.OrderBy(i => i).Skip(4).First();
 ```
 
 ### SHA256:
 ```csharp
+//byte[] _raw = new byte[100 * 1024 * 1024];
+//for (int index = 0; index < _raw.Length; index++) _raw[index] = (byte)index;
+
 public void Sha256() => _sha256.ComputeHash(_raw);
 ```
 
 ### String:
 ```csharp
+// static string _s = "abcdefghijklmnopqrstuvwxyz";
+
 public void StringStartsWith()
 {
     for (int i = 0; i < 100_000_000; i++)
@@ -51,6 +60,8 @@ public void Deserialize()
 
 ## Results
 
+![Chart](img/chart1.png)
+
 ### Intel  Core i7-4702MQ CPU 2.20GHz (Hasewell), Windows 10 (1909)
 #### .NET Framework 4.8
 - Enum -  303 ns
@@ -78,3 +89,14 @@ public void Deserialize()
 - SHA256 - 49 ms
 - String - 444 ms
 - Deserialize - 305 ms
+
+## Summary
+.NET Core is much, much faster than .NET Framework:
+
+Benchmark | Ratio | Notes
+------------ | ------------- | -------------
+Enum | 2x | Improved Enum.Parse/TryParse
+Linq | 8x | Linq optimizations, rewritten operators
+SHA256 | 2-14x | Native cryptography in C++ (.NET Framework doesn't utilize AMD's cryptography features!) - CNG on Windows / OpenSSL on Unix
+String | 2-3x | Improvements related to String/Char
+Deserialize | 2-12x | Better deserialization performance on biggers objects
