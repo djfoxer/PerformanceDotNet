@@ -5,7 +5,7 @@ Small console application to compare performance of .NET Framework (4.8), .NET C
 .NET 5 is fresh, shiny and ready to test with first preview version. To check new runtime you have to download [Visual Studio 2019 16.6.0 preview](https://visualstudio.microsoft.com/en/vs/preview/) and [.NET 5.0 Preview 1 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0). 
 
 ### .NET 5 preview 1 vs .NET Core 3.2.1
-Based on current tests we can assume that runtime performance of that .NET 5 preview 1 and .NET Core 3.x.x are almost identical. In [first announcement](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/) was described that team focused on regular expression performance improvements. Still without any details, but it was promised that blog post is coming shortly. When it will be available - new test(s) will come.
+Based on current tests we can assume that runtime performance of that .NET 5 preview 1 and .NET Core 3.x.x are almost identical. In [first announcement](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/) was described that team is focused on regular expression performance improvements. Still without any details, but it was promised that blog post is coming shortly. When it will be available - new test(s) will come.
 
 ## Code details
 
@@ -101,6 +101,6 @@ Benchmark | Ratio | Notes
 ------------ | ------------- | -------------
 Enum | 2x | Improved Enum.Parse/TryParse
 Linq | 8x | Linq optimizations, rewritten operators
-SHA256 | 2-14x | Native cryptography in C++ (.NET Framework doesn't utilize AMD's cryptography features!) - CNG on Windows / OpenSSL on Unix
+SHA256 | 2-14x | Native cryptography in C++ (.NET Framework doesn't utilize AMD's cryptography features!) - CNG on Windows / OpenSSL on Unix. More about why and how AMD is faster you can find here: [Will AMD’s Ryzen finally bring SHA extensions to Intel’s CPUs?](https://neosmart.net/blog/2017/will-amds-ryzen-finally-bring-sha-extensions-to-intels-cpus/)
 String | 2-3x | Improvements related to String/Char
 Deserialize | 2-12x | Better deserialization performance on biggers objects
