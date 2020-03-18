@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "djfoxer.DotNetFrameworkVsCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "djfoxer.DotNetFrameworkVsCore.Framework", "djfoxer.DotNetFrameworkVsCore.Framework\djfoxer.DotNetFrameworkVsCore.Framework.csproj", "{60AEC457-AC7B-4CFD-BEBA-26695BF2305E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "djfoxer.DotNetFrameworkVsCore.Common", "djfoxer.DotNetFrameworkVsCore.Common\djfoxer.DotNetFrameworkVsCore.Common.csproj", "{82DC22FF-E190-461F-94C4-5AC5A23A0575}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "djfoxer.DotNetFrameworkVsCore.Common", "djfoxer.DotNetFrameworkVsCore.Common\djfoxer.DotNetFrameworkVsCore.Common.csproj", "{82DC22FF-E190-461F-94C4-5AC5A23A0575}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "djfoxer.DotNetFrameworkVsCore.Net5", "djfoxer.DotNetFrameworkVsCore.Net5\djfoxer.DotNetFrameworkVsCore.Net5.csproj", "{34BF25CE-B42C-4407-ABC1-32CA2D6950EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34BF25CE-B42C-4407-ABC1-32CA2D6950EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34BF25CE-B42C-4407-ABC1-32CA2D6950EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34BF25CE-B42C-4407-ABC1-32CA2D6950EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34BF25CE-B42C-4407-ABC1-32CA2D6950EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
