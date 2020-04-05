@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Jobs;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,6 +9,12 @@ using System.Security.Cryptography;
 
 namespace djfoxer.DotNetFrameworkVsCore.Common
 {
+    [SimpleJob(RuntimeMoniker.Net48, baseline: true)]
+    [SimpleJob(RuntimeMoniker.NetCoreApp31)]
+    [SimpleJob(RuntimeMoniker.NetCoreApp50)]
+   // [RPlotExporter]
+    [CsvMeasurementsExporter]
+    [MarkdownExporterAttribute.GitHub]
     public class MainBenchmark
     {
         IEnumerable<int> _tenMillionToZero = Enumerable.Range(0, 10_000_000).Reverse();

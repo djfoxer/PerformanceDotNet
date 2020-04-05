@@ -1,15 +1,14 @@
 ﻿using BenchmarkDotNet.Running;
 using djfoxer.DotNetFrameworkVsCore.Common;
-using System;
 
-namespace djfoxer.DotNetFrameworkVsCore.Net5
+namespace djfoxer.DotNetFrameworkVsCore.App
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<MainBenchmark>();
-            Console.ReadLine();
+            BenchmarkRunner.Run<RegexBenchmark>();
+            BenchmarkRunner.Run<MainBenchmark>();
         }
     }
 }
