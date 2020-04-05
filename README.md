@@ -1,8 +1,10 @@
 # DotNetFrameworkVsCore - compare multiple .NET runtimes
 Small console application to compare performance of **.NET Framework (4.8), .NET Core (3.1.x) and .NET 5 (preview 2)**. Common benchmarks are written in .NET Standard. App contains 5 benchmarks to test performance of .NET Framework (4.8), .NET Core (3.1.x) and .NET 5 (preview 2). Another 4 benchmarks are related to regex performance. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
 
-### Check .NET 5 preview 2
-.NET 5 is fresh, shiny and ready to test with first preview version. To check new runtime you have to download [Visual Studio 2019 16.6.0 preview](https://visualstudio.microsoft.com/en/vs/preview/) and [.NET 5.0 Preview 2 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0). 
+### You can easily  check how fast/slow is .NET Framework/.NET Core/.NET 5!
+
+#### Try .NET 5 preview 2!
+.NET 5 is fresh, shiny and ready to test. To check new runtime you have to download [Visual Studio 2019 16.6.0 preview](https://visualstudio.microsoft.com/en/vs/preview/) and [.NET 5.0 Preview 2 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0). 
 
 
 # .NET Framework (4.8) vs .NET Core (3.1.x) vs .NET 5 (preview 2)
