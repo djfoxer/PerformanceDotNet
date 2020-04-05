@@ -7,7 +7,7 @@ Small console application to compare performance of **.NET Framework (4.8), .NET
 #### .NET 5 preview 2 vs .NET Core 3.1.x
 Based on current tests we can assume that runtime performance of that .NET 5 preview 1 and .NET Core 3.x.x are almost identical. In [first announcement](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/) was described that team is focused on regular expression performance improvements. More details here: [Regex Performance Improvements in .NET 5](https://devblogs.microsoft.com/dotnet/regex-performance-improvements-in-net-5/)
 
-# Results: .NET Framework (4.8) vs .NET Core (3.1.x) vs .NET 5 (preview 2)
+# .NET Framework (4.8) vs .NET Core (3.1.x) vs .NET 5 (preview 2)
 
 ``` ini
 
@@ -59,7 +59,12 @@ Intel Core i7-4702MQ CPU 2.20GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 |   Regex_BackTracking | .NET Core 3.1 | 34,763,742.9 ns | 0.809 |
 |   Regex_BackTracking | .NET Core 5.0 |        578.1 ns | 0.000 |
 
-
+![Chart](img/cmp_1_1.png)
+![Chart](img/cmp_1_2.png)
+![Chart](img/cmp_1_3.png)
+![Chart](img/cmp_1_4.png)
+![Chart](img/cmp_1_5.png)
+![Chart](img/cmp_1_6.png)
 
 ## Code details
 
@@ -165,30 +170,29 @@ Deserialize | 2-12x | Better deserialization performance on biggers objects
 Regex |2-70k (!!)| Huge improvements in .NET 5 compared to .NET Core and .NET Framework: [Regex Performance Improvements in .NET 5](https://devblogs.microsoft.com/dotnet/regex-performance-improvements-in-net-5/)
 
 
-## Old results (only for .NET Framework vs .NET Core)
-![Chart](img/chart1.png)
-### Intel  Core i7-4702MQ CPU 2.20GHz (Hasewell), Windows 10 (1909)
-#### .NET Framework 4.8
+### Old results (only for .NET Framework vs .NET Core)
+#### Intel  Core i7-4702MQ CPU 2.20GHz (Hasewell), Windows 10 (1909)
+##### .NET Framework 4.8
 - Enum -  303 ns
 - Linq - 1 834 ms
 - SHA256 - 1 216 ms
 - String - 1 857 ms
 - Deserialize - 778 ms
-#### .NET Core 3.1.1
+##### .NET Core 3.1.1
 - Enum -  156 ns
 - Linq - 211 ms
 - SHA256 - 479 ms
 - String - 879 ms
 - Deserialize - 424 ms
 
-### AMD Ryzen 7 3700X, Windows 10 (1903 (?))
-#### .NET Framework 4.8
+#### AMD Ryzen 7 3700X, Windows 10 (1903 (?))
+##### .NET Framework 4.8
 - Enum -  231 ns
 - Linq - 1 283 ms
 - SHA256 - 687 ms
 - String - 1 279 ms
 - Deserialize - 645 ms
-#### .NET Core 3.0 (prev 8)
+##### .NET Core 3.0 (prev 8)
 - Enum -  129 ns
 - Linq - 158 ms
 - SHA256 - 49 ms
