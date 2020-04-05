@@ -3,8 +3,8 @@ Small console application to compare performance of **.NET Framework (4.8), .NET
 
 ### You can easily  check how fast/slow is .NET Framework/.NET Core/.NET 5!
 
-#### Try .NET 5 preview 2!
-.NET 5 is fresh, shiny and ready to test. To check new runtime you have to download [Visual Studio 2019 16.6.0 preview](https://visualstudio.microsoft.com/en/vs/preview/) and [.NET 5.0 Preview 2 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0). 
+
+**Try .NET 5 preview 2!** - .NET 5 is fresh, shiny and ready to test. To check new runtime you have to download [Visual Studio 2019 16.6.0 preview](https://visualstudio.microsoft.com/en/vs/preview/) and [.NET 5.0 Preview 2 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0). In this release .NET Team was focused to improve regex engine.
 
 
 # .NET Framework (4.8) vs .NET Core (3.1.x) vs .NET 5 (preview 2)
