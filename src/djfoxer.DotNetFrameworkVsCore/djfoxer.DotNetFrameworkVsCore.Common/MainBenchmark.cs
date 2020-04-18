@@ -12,7 +12,7 @@ namespace djfoxer.DotNetFrameworkVsCore.Common
     [SimpleJob(RuntimeMoniker.Net48, baseline: true)]
     [SimpleJob(RuntimeMoniker.NetCoreApp31)]
     [SimpleJob(RuntimeMoniker.NetCoreApp50)]
-   // [RPlotExporter]
+    [RPlotExporter]
     [CsvMeasurementsExporter]
     [MarkdownExporterAttribute.GitHub]
     public class MainBenchmark

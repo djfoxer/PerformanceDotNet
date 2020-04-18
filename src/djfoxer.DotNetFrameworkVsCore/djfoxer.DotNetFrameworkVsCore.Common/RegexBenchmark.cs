@@ -1,6 +1,8 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 using System.IO;
+using System.Reflection;
+using System.Resources;
 using System.Text.RegularExpressions;
 
 namespace djfoxer.DotNetFrameworkVsCore.Common
@@ -8,7 +10,7 @@ namespace djfoxer.DotNetFrameworkVsCore.Common
     [SimpleJob(RuntimeMoniker.Net48, baseline: true)]
     [SimpleJob(RuntimeMoniker.NetCoreApp31)]
     [SimpleJob(RuntimeMoniker.NetCoreApp50)]
-   // [RPlotExporter]
+    [RPlotExporter]
     [CsvMeasurementsExporter]
     [MarkdownExporterAttribute.GitHub]
     public class RegexBenchmark
@@ -19,7 +21,8 @@ namespace djfoxer.DotNetFrameworkVsCore.Common
         [GlobalSetup]
         public void BenchmarkSetup()
         {
-            _commonInput = File.ReadAllText("InputFiles/CSharpUseDeconstructionDiagnosticAnalyzer.cs.txt");
+            ResourceManager rm = new ResourceManager("djfoxer.DotNetFrameworkVsCore.Common.Resources.InputResource", Assembly.GetExecutingAssembly());
+            _commonInput = rm.GetString("CSharpUseDeconstructionDiagnosticAnalyzer_cs", System.Globalization.CultureInfo.InvariantCulture);
 
             _regexEmail = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", RegexOptions.Compiled);
             _regexStrongPassword = new Regex(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", RegexOptions.Compiled);

@@ -5,13 +5,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.12.0" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <None Update="InputFiles\CSharpUseDeconstructionDiagnosticAnalyzer.cs.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
   </ItemGroup>
   
 </Project>
