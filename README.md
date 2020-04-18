@@ -170,33 +170,196 @@ Deserialize | 2-12x | Better deserialization performance on biggers objects
 Regex |2-70k (!!)| Huge improvements in .NET 5 compared to .NET Core and .NET Framework: [Regex Performance Improvements in .NET 5](https://devblogs.microsoft.com/dotnet/regex-performance-improvements-in-net-5/)
 
 
-### Old results (only for .NET Framework vs .NET Core)
-#### Intel  Core i7-4702MQ CPU 2.20GHz (Hasewell), Windows 10 (1909)
-##### .NET Framework 4.8
-- Enum -  303 ns
-- Linq - 1 834 ms
-- SHA256 - 1 216 ms
-- String - 1 857 ms
-- Deserialize - 778 ms
-##### .NET Core 3.1.1
-- Enum -  156 ns
-- Linq - 211 ms
-- SHA256 - 479 ms
-- String - 879 ms
-- Deserialize - 424 ms
+# More test results from Przemysław Łukawski [https://github.com/plukawski](https://github.com/plukawski)
 
-#### AMD Ryzen 7 3700X, Windows 10 (1903 (?))
-##### .NET Framework 4.8
-- Enum -  231 ns
-- Linq - 1 283 ms
-- SHA256 - 687 ms
-- String - 1 279 ms
-- Deserialize - 645 ms
-##### .NET Core 3.0 (prev 8)
-- Enum -  129 ns
-- Linq - 158 ms
-- SHA256 - 49 ms
-- String - 444 ms
-- Deserialize - 305 ms
+``` ini
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18363
+AMD Ryzen 7 3700X, 1 CPU, 16 logical and 8 physical cores
+.NET Core SDK=5.0.100-preview.2.20176.6
+  [Host]     : .NET Core 5.0.0 (CoreCLR 5.0.20.16006, CoreFX 5.0.20.16006), X64 RyuJIT
+  Job-ZUTQCR : .NET Framework 4.8 (4.8.4150.0), X64 RyuJIT
+  Job-ATUCIV : .NET Core 3.1.3 (CoreCLR 4.700.20.11803, CoreFX 4.700.20.12001), X64 RyuJIT
+  Job-IFEMVP : .NET Core 5.0.0 (CoreCLR 5.0.20.16006, CoreFX 5.0.20.16006), X64 RyuJIT
+```
 
+|               Method |       Runtime |            Mean | Ratio |
+|--------------------- |-------------- |----------------:|------:|
+|          Regex_Email |      .NET 4.8 |  1,596,947.8 ns |  1.00 |
+|          Regex_Email | .NET Core 3.1 |  1,356,909.3 ns |  0.85 |
+|          Regex_Email | .NET Core 5.0 |    512,156.2 ns |  0.32 |
+|                      |               |                 |       |
+| Regex_StrongPassword |      .NET 4.8 |      1,237.2 ns |  1.00 |
+| Regex_StrongPassword | .NET Core 3.1 |      1,039.0 ns |  0.84 |
+| Regex_StrongPassword | .NET Core 5.0 |        276.6 ns |  0.22 |
+|                      |               |                 |       |
+|  Regex_SpanSearching |      .NET 4.8 |    252,325.8 ns |  1.00 |
+|  Regex_SpanSearching | .NET Core 3.1 |    209,693.3 ns |  0.83 |
+|  Regex_SpanSearching | .NET Core 5.0 |     15,778.5 ns |  0.06 |
+|                      |               |                 |       |
+|   Regex_BackTracking |      .NET 4.8 | 33,101,199.0 ns | 1.000 |
+|   Regex_BackTracking | .NET Core 3.1 | 24,998,875.2 ns | 0.755 |
+|   Regex_BackTracking | .NET Core 5.0 |        411.4 ns | 0.000 |
+|                      |               |                 |       |
+| EnumParse            | .NET 4.8      |           199.1 ns |  1.00 |
+| EnumParse            | .NET Core 3.1 |           124.4 ns |  0.62 |
+| EnumParse            | .NET Core 5.0 |           125.7 ns |  0.63 |
+|                      |               |                    |       |
+| LinqOrderBySkipFirst | .NET 4.8      | 1,291,386,100.0 ns |  1.00 |
+| LinqOrderBySkipFirst | .NET Core 3.1 |   158,975,148.2 ns |  0.12 |
+| LinqOrderBySkipFirst | .NET Core 5.0 |   158,977,596.4 ns |  0.12 |
+|                      |               |                    |       |
+| Sha256               | .NET 4.8      |   649,423,446.2 ns |  1.00 |
+| Sha256               | .NET Core 3.1 |    50,023,144.0 ns |  0.08 |
+| Sha256               | .NET Core 5.0 |    49,985,630.0 ns |  0.08 |
+|                      |               |                    |       |
+| StringStartsWith     | .NET 4.8      | 1,196,827,121.4 ns |  1.00 |
+| StringStartsWith     | .NET Core 3.1 |   449,453,993.3 ns |  0.38 |
+| StringStartsWith     | .NET Core 5.0 |   429,479,420.0 ns |  0.36 |
+|                      |               |                    |       |
+| Deserialize          | .NET 4.8      |   644,708,006.7 ns |  1.00 |
+| Deserialize          | .NET Core 3.1 |   303,057,114.3 ns |  0.47 |
+| Deserialize          | .NET Core 5.0 |   291,656,106.7 ns |  0.45 |
 
+``` ini
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18363
+AMD EPYC 7452, 1 CPU, 2 logical cores and 1 physical core
+.NET Core SDK=5.0.100-preview.2.20176.6
+  [Host]     : .NET Core 5.0.0 (CoreCLR 5.0.20.16006, CoreFX 5.0.20.16006), X64 RyuJIT
+  Job-NFSGVR : .NET Framework 4.8 (4.8.4150.0), X64 RyuJIT
+  Job-JDZARQ : .NET Core 3.1.2 (CoreCLR 4.700.20.6602, CoreFX 4.700.20.6702), X64 RyuJIT
+  Job-XMFFDJ : .NET Core 5.0.0 (CoreCLR 5.0.20.16006, CoreFX 5.0.20.16006), X64 RyuJIT
+```
+
+| Method               | Runtime       |            Mean | Ratio |
+|----------------------|---------------|----------------:|------:|
+| Regex_Email          | .NET 4.8      |  2,069,762.0 ns |  1.00 |
+| Regex_Email          | .NET Core 3.1 |  1,696,688.2 ns |  0.82 |
+| Regex_Email          | .NET Core 5.0 |    668,848.8 ns |  0.32 |
+|                      |               |                 |       |
+| Regex_StrongPassword | .NET 4.8      |      1,583.3 ns |  1.00 |
+| Regex_StrongPassword | .NET Core 3.1 |      1,324.0 ns |  0.84 |
+| Regex_StrongPassword | .NET Core 5.0 |        356.4 ns |  0.23 |
+|                      |               |                 |       |
+| Regex_SpanSearching  | .NET 4.8      |    325,314.0 ns |  1.00 |
+| Regex_SpanSearching  | .NET Core 3.1 |    280,526.6 ns |  0.86 |
+| Regex_SpanSearching  | .NET Core 5.0 |     20,132.1 ns |  0.06 |
+|                      |               |                 |       |
+| Regex_BackTracking   | .NET 4.8      | 42,860,065.0 ns | 1.000 |
+| Regex_BackTracking   | .NET Core 3.1 | 31,944,158.3 ns | 0.745 |
+| Regex_BackTracking   | .NET Core 5.0 |        540.0 ns | 0.000 |
+|                      |               |                 |       |
+| EnumParse            | .NET 4.8      |           257.6 ns |  1.00 |
+| EnumParse            | .NET Core 3.1 |           173.9 ns |  0.67 |
+| EnumParse            | .NET Core 5.0 |           160.4 ns |  0.62 |
+|                      |               |                    |       |
+| LinqOrderBySkipFirst | .NET 4.8      | 1,692,676,592.3 ns |  1.00 |
+| LinqOrderBySkipFirst | .NET Core 3.1 |   210,773,388.9 ns |  0.12 |
+| LinqOrderBySkipFirst | .NET Core 5.0 |   211,571,962.2 ns |  0.12 |
+|                      |               |                    |       |
+| Sha256               | .NET 4.8      |   838,048,820.0 ns |  1.00 |
+| Sha256               | .NET Core 3.1 |    64,524,352.5 ns |  0.08 |
+| Sha256               | .NET Core 5.0 |    64,530,346.7 ns |  0.08 |
+|                      |               |                    |       |
+| StringStartsWith     | .NET 4.8      | 1,589,253,135.3 ns |  1.00 |
+| StringStartsWith     | .NET Core 3.1 |   547,359,884.6 ns |  0.34 |
+| StringStartsWith     | .NET Core 5.0 |   608,590,760.0 ns |  0.38 |
+|                      |               |                    |       |
+| Deserialize          | .NET 4.8      |   984,847,792.9 ns |  1.00 |
+| Deserialize          | .NET Core 3.1 |   423,896,185.7 ns |  0.43 |
+| Deserialize          | .NET Core 5.0 |   414,115,746.7 ns |  0.42 |
+
+``` ini
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18363
+Intel Xeon CPU E5-2673 v4 2.30GHz, 1 CPU, 2 logical cores and 1 physical core
+.NET Core SDK=5.0.100-preview.2.20176.6
+  [Host]     : .NET Core 5.0.0 (CoreCLR 5.0.20.16006, CoreFX 5.0.20.16006), X64 RyuJIT
+  Job-OFLLPY : .NET Framework 4.8 (4.8.4150.0), X64 RyuJIT
+  Job-YMNQKZ : .NET Core 3.1.2 (CoreCLR 4.700.20.6602, CoreFX 4.700.20.6702), X64 RyuJIT
+  Job-YNHYXG : .NET Core 5.0.0 (CoreCLR 5.0.20.16006, CoreFX 5.0.20.16006), X64 RyuJIT
+  ```
+
+| Method               | Runtime       |            Mean | Ratio |
+|----------------------|---------------|----------------:|------:|
+| Regex_Email          | .NET 4.8      |  2,499,773.9 ns |  1.00 |
+| Regex_Email          | .NET Core 3.1 |  2,068,008.8 ns |  0.83 |
+| Regex_Email          | .NET Core 5.0 |    819,443.4 ns |  0.33 |
+|                      |               |                 |       |
+| Regex_StrongPassword | .NET 4.8      |      2,073.3 ns |  1.00 |
+| Regex_StrongPassword | .NET Core 3.1 |      1,831.4 ns |  0.89 |
+| Regex_StrongPassword | .NET Core 5.0 |        466.2 ns |  0.22 |
+|                      |               |                 |       |
+| Regex_SpanSearching  | .NET 4.8      |    369,914.6 ns |  1.00 |
+| Regex_SpanSearching  | .NET Core 3.1 |    343,073.6 ns |  0.92 |
+| Regex_SpanSearching  | .NET Core 5.0 |     25,006.9 ns |  0.07 |
+|                      |               |                 |       |
+| Regex_BackTracking   | .NET 4.8      | 49,816,213.9 ns | 1.000 |
+| Regex_BackTracking   | .NET Core 3.1 | 36,579,091.8 ns | 0.731 |
+| Regex_BackTracking   | .NET Core 5.0 |        629.1 ns | 0.000 |
+|                      |               |                    |       |
+| EnumParse            | .NET 4.8      |           302.5 ns |  1.00 |
+| EnumParse            | .NET Core 3.1 |           180.8 ns |  0.60 |
+| EnumParse            | .NET Core 5.0 |           171.7 ns |  0.57 |
+|                      |               |                    |       |
+| LinqOrderBySkipFirst | .NET 4.8      | 1,995,979,569.2 ns |  1.00 |
+| LinqOrderBySkipFirst | .NET Core 3.1 |   250,035,090.5 ns |  0.12 |
+| LinqOrderBySkipFirst | .NET Core 5.0 |   260,239,916.2 ns |  0.13 |
+|                      |               |                    |       |
+| Sha256               | .NET 4.8      | 1,091,537,713.3 ns |  1.00 |
+| Sha256               | .NET Core 3.1 |   529,427,276.5 ns |  0.48 |
+| Sha256               | .NET Core 5.0 |   541,877,097.1 ns |  0.50 |
+|                      |               |                    |       |
+| StringStartsWith     | .NET 4.8      | 2,051,764,392.9 ns |  1.00 |
+| StringStartsWith     | .NET Core 3.1 |   995,279,857.1 ns |  0.49 |
+| StringStartsWith     | .NET Core 5.0 |   879,329,027.3 ns |  0.43 |
+|                      |               |                    |       |
+| Deserialize          | .NET 4.8      |   773,173,011.8 ns |  1.00 |
+| Deserialize          | .NET Core 3.1 |   409,842,688.2 ns |  0.53 |
+| Deserialize          | .NET Core 5.0 |   391,988,365.4 ns |  0.51 |
+
+``` ini
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18363
+Intel Xeon Platinum 8171M CPU 2.60GHz, 1 CPU, 2 logical cores and 1 physical core
+.NET Core SDK=5.0.100-preview.2.20176.6
+  [Host]     : .NET Core 5.0.0 (CoreCLR 5.0.20.16006, CoreFX 5.0.20.16006), X64 RyuJIT
+  Job-EXMOTN : .NET Framework 4.8 (4.8.4150.0), X64 RyuJIT
+  Job-HBVQSG : .NET Core 3.1.2 (CoreCLR 4.700.20.6602, CoreFX 4.700.20.6702), X64 RyuJIT
+  Job-ZDNBKV : .NET Core 5.0.0 (CoreCLR 5.0.20.16006, CoreFX 5.0.20.16006), X64 RyuJIT
+  ```
+
+| Method               | Runtime       |            Mean | Ratio |
+|----------------------|---------------|----------------:|------:|
+| Regex_Email          | .NET 4.8      |  2,619,739.0 ns |  1.00 |
+| Regex_Email          | .NET Core 3.1 |  2,159,228.2 ns |  0.82 |
+| Regex_Email          | .NET Core 5.0 |    844,835.4 ns |  0.32 |
+|                      |               |                 |       |
+| Regex_StrongPassword | .NET 4.8      |      2,170.1 ns |  1.00 |
+| Regex_StrongPassword | .NET Core 3.1 |      1,906.8 ns |  0.88 |
+| Regex_StrongPassword | .NET Core 5.0 |        499.8 ns |  0.23 |
+|                      |               |                 |       |
+| Regex_SpanSearching  | .NET 4.8      |    405,482.9 ns |  1.00 |
+| Regex_SpanSearching  | .NET Core 3.1 |    376,713.8 ns |  0.93 |
+| Regex_SpanSearching  | .NET Core 5.0 |     26,474.7 ns |  0.07 |
+|                      |               |                 |       |
+| Regex_BackTracking   | .NET 4.8      | 49,737,000.6 ns | 1.000 |
+| Regex_BackTracking   | .NET Core 3.1 | 39,805,924.7 ns | 0.802 |
+| Regex_BackTracking   | .NET Core 5.0 |        678.5 ns | 0.000 |
+|                      |               |                 |       |
+| EnumParse            | .NET 4.8      |           343.1 ns |  1.00 |
+| EnumParse            | .NET Core 3.1 |           188.5 ns |  0.55 |
+| EnumParse            | .NET Core 5.0 |           188.7 ns |  0.55 |
+|                      |               |                    |       |
+| LinqOrderBySkipFirst | .NET 4.8      | 2,113,597,227.8 ns |  1.00 |
+| LinqOrderBySkipFirst | .NET Core 3.1 |   274,652,566.7 ns |  0.13 |
+| LinqOrderBySkipFirst | .NET Core 5.0 |   267,348,370.0 ns |  0.12 |
+|                      |               |                    |       |
+| Sha256               | .NET 4.8      | 1,222,152,246.7 ns |  1.00 |
+| Sha256               | .NET Core 3.1 |   632,374,133.3 ns |  0.52 |
+| Sha256               | .NET Core 5.0 |   634,169,393.3 ns |  0.52 |
+|                      |               |                    |       |
+| StringStartsWith     | .NET 4.8      | 2,197,562,306.7 ns |  1.00 |
+| StringStartsWith     | .NET Core 3.1 |   868,539,978.6 ns |  0.40 |
+| StringStartsWith     | .NET Core 5.0 |   863,221,673.3 ns |  0.39 |
+|                      |               |                    |       |
+| Deserialize          | .NET 4.8      | 1,231,583,513.6 ns |  1.00 |
+| Deserialize          | .NET Core 3.1 |   474,690,685.7 ns |  0.39 |
+| Deserialize          | .NET Core 5.0 |   457,693,543.8 ns |  0.37 |
