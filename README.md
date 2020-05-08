@@ -1,7 +1,7 @@
 # DotNetFrameworkVsCore - compare multiple .NET runtimes
 Small console application to compare performance of **.NET Framework (4.8), .NET Core (3.1.x) and .NET 5 (preview 2)**. Common benchmarks are written in .NET Standard. App contains 5 benchmarks to test performance of .NET Framework (4.8), .NET Core (3.1.x) and .NET 5 (preview 2). Another 4 benchmarks are related to regex performance. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
 
-Blog post about comparing .NET runtimes performance [.NET Core is dead, long live the .NET Core (and .NET 5) and its performance](https://www.dobreprogramy.pl/djfoxer/Umarl-NET-Framework-niech-zyje-NET-Core-oraz-NET-i-jego-wydajnosc,105443.html) (only in Polish!)
+**Blog post about comparing .NET runtimes performance [.NET Core is dead, long live the .NET Core (and .NET 5) and its performance](https://www.dobreprogramy.pl/djfoxer/Umarl-NET-Framework-niech-zyje-NET-Core-oraz-NET-i-jego-wydajnosc,105443.html) (only in Polish!)**
 
 ### You can easily  check how fast/slow is .NET Framework/.NET Core/.NET 5!
 
@@ -174,7 +174,7 @@ Regex |2-70k (!!)| Huge improvements in .NET 5 compared to .NET Core and .NET Fr
 
 
 ### More test results from [https://github.com/plukawski](https://github.com/plukawski)
-Blog post based on DotNetFrameworkVsCore: [.NET Core vs .NET Framework: Testing Performance]](https://www.softwarehut.com/blog/tech/net-core-vs-net-framework-testing-performance)
+Blog post based on DotNetFrameworkVsCore: [.NET Core vs .NET Framework: Testing Performance](https://www.softwarehut.com/blog/tech/net-core-vs-net-framework-testing-performance)
 
 ``` ini
 BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18363
