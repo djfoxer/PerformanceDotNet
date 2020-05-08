@@ -173,7 +173,7 @@ Deserialize | 2-12x | Better deserialization performance on biggers objects
 Regex |2-70k (!!)| Huge improvements in .NET 5 compared to .NET Core and .NET Framework: [Regex Performance Improvements in .NET 5](https://devblogs.microsoft.com/dotnet/regex-performance-improvements-in-net-5/)
 
 
-# More test results from [https://github.com/plukawski](https://github.com/plukawski)
+### More test results from [https://github.com/plukawski](https://github.com/plukawski)
 Blog post based on DotNetFrameworkVsCore: [.NET Core vs .NET Framework: Testing Performance)]https://www.softwarehut.com/blog/tech/net-core-vs-net-framework-testing-performance)
 
 ``` ini
