@@ -1,10 +1,13 @@
 # DotNetFrameworkVsCore - compare multiple .NET runtimes
 Small console application to compare performance of **.NET Framework (4.8), .NET Core (3.1.x) and .NET 5 (preview 2)**. Common benchmarks are written in .NET Standard. App contains 5 benchmarks to test performance of .NET Framework (4.8), .NET Core (3.1.x) and .NET 5 (preview 2). Another 4 benchmarks are related to regex performance. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
 
+Blog post about comparing .NET runtimes performance [.NET Core is dead, long live the .NET Core (and .NET 5) and its performance](https://www.dobreprogramy.pl/djfoxer/Umarl-NET-Framework-niech-zyje-NET-Core-oraz-NET-i-jego-wydajnosc,105443.html) (only in Polish!)
+
 ### You can easily  check how fast/slow is .NET Framework/.NET Core/.NET 5!
 
 
 **Try .NET 5 preview 2!** - .NET 5 is fresh, shiny and ready to test. To check new runtime you have to download [Visual Studio 2019 16.6.0 preview](https://visualstudio.microsoft.com/en/vs/preview/) and [.NET 5.0 Preview 2 SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0). In this release .NET Team was focused to improve regex engine.
+
 
 
 # .NET Framework (4.8) vs .NET Core (3.1.x) vs .NET 5 (preview 2)
@@ -170,7 +173,8 @@ Deserialize | 2-12x | Better deserialization performance on biggers objects
 Regex |2-70k (!!)| Huge improvements in .NET 5 compared to .NET Core and .NET Framework: [Regex Performance Improvements in .NET 5](https://devblogs.microsoft.com/dotnet/regex-performance-improvements-in-net-5/)
 
 
-# More test results from Przemysław Łukawski [https://github.com/plukawski](https://github.com/plukawski)
+# More test results from [https://github.com/plukawski](https://github.com/plukawski)
+Blog post based on DotNetFrameworkVsCore: [.NET Core vs .NET Framework: Testing Performance)]https://www.softwarehut.com/blog/tech/net-core-vs-net-framework-testing-performance)
 
 ``` ini
 BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18363
