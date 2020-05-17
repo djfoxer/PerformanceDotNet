@@ -1,4 +1,4 @@
-# DotNetFrameworkVsCore - compare multiple .NET runtimes on different OS
+# DotNetFrameworkVsCore - compare multiple .NET runtimes on various OS
 Small console application to compare performance of **.NET Framework (4.8), .NET Core (3.1.x), .NET 5 (preview) and Mono (6.8.0)**.
 
 Common tests are written in .NET Standard. App contains 5 benchmarks to test performance of .NET Framework (4.8), .NET Core (3.1.x), .NET 5 (preview) and Mono (6.8.0). Another 4 benchmarks are related to regex performance. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
