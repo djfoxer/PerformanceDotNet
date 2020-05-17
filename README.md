@@ -104,6 +104,8 @@ _regexBackTracking.IsMatch("aaaaaaaaaaaaaaaaaaaaa");
 # Benchmark experiment  #1: 
 ## .NET Framework (4.8) vs .NET Core (3.1.x) vs .NET 5 (preview 2) on Windows 10 (and Intel vs AMD)
 
+![Chart](img/ben1.png)
+
 In first benchmark .NET Framework, .NET Core and .NET 5 were compared on Windows 10. Results, charts and more details with summary you can find here **[Benchmark #1: NET Framework (4.8) vs .NET Core (3.1.x) vs .NET 5 (preview 2) on Windows 10](doc/Benchmark_Windows_ClassicCoreNet5.md)**
 
 * Blog post about performance of multiple .NET runtimes on Windows 10 (and few details about differences between Intel and AMD) - [.NET Core is dead, long live the .NET Core (and .NET 5) and its performance](https://www.dobreprogramy.pl/djfoxer/Umarl-NET-Framework-niech-zyje-NET-Core-oraz-NET-i-jego-wydajnosc,105443.html) (only in Polish!)
@@ -111,9 +113,11 @@ In first benchmark .NET Framework, .NET Core and .NET 5 were compared on Windows
 # Benchmark experiment  #2: 
 ## Linux (Ubuntu 20.04) vs Windows 10: .NET Core (3.1.x), .NET 5 (preview 3) and Mono (6.8.0)
 
+![Chart](img/ben2.png)
+
 In this benchmark multi-platform .NET runtimes were compared on Windows 10 and Linux (Ubunru 20.04). .NET Core, .NET 5 and Mono were taken to tests. Results, charts and more details with summary you can find here **[Benchmark #2: Linux (Ubuntu 20.04) vs Windows 10 and multi-platform .NET (.NET Core, .NET 5 and Mono)](doc/Benchmark_WindowsLinux_CoreNet5Mono.md)**
 
-* Blog post about performance of multiple .NET runtimes on Windows and Linux - [.NET Linux vs Windows - performance benchmark  of .NET Core 3.1, .NET 5.0 and also Mono] (only in Polish!)
+* Blog post about performance of multiple .NET runtimes on Windows and Linux - [.NET Linux vs Windows - performance benchmark  of .NET Core 3.1, .NET 5.0 and also Mono](https://www.dobreprogramy.pl/djfoxer/NET-Linux-vs-Windows-test-wydajnosci-NET-Core-NET-a-takze-Mono,107926.html) (only in Polish!)
 
 
 
