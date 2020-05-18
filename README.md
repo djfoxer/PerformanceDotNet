@@ -20,7 +20,7 @@ public DayOfWeek EnumParse() => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), "Thursd
 ```csharp
 //IEnumerable<int> _tenMillionToZero = Enumerable.Range(0, 10_000_000).Reverse();
 
-public void LinqOrderBySkipFirst() => _tenMillionToZero.OrderBy(i => i).Skip(4).First();
+public int LinqOrderBySkipFirst() => _tenMillionToZero.OrderBy(i => i).Skip(4).First();
 ```
 
 ### SHA256:
@@ -28,39 +28,42 @@ public void LinqOrderBySkipFirst() => _tenMillionToZero.OrderBy(i => i).Skip(4).
 //byte[] _raw = new byte[100 * 1024 * 1024];
 //for (int index = 0; index < _raw.Length; index++) _raw[index] = (byte)index;
 
-public void Sha256() => _sha256.ComputeHash(_raw);
+public byte[] Sha256() => _sha256.ComputeHash(_raw);
 ```
 
 ### String:
 ```csharp
 // static string _s = "abcdefghijklmnopqrstuvwxyz";
 
-public void StringStartsWith()
+public bool StringStartsWith()
 {
+    var data = false;
     for (int i = 0; i < 100_000_000; i++)
     {
-        _s.StartsWith("abcdefghijklmnopqrstuvwxy-", StringComparison.Ordinal);
+        data = _s.StartsWith("abcdefghijklmnopqrstuvwxy-", StringComparison.Ordinal);
     }
+    return data;
 }
 ```
 
 ### Deserialize:
 ```csharp
-public void Deserialize()
-{
-    var books = new List<Book>();
-    for (int i = 0; i < 1_00000; i++)
-    {
-        string id = i.ToString();
-        books.Add(new Book { Name = id, Id = id });
-    }
 
+//var books = new List<Book>();
+//for (int i = 0; i < 1_00000; i++)
+//{
+//    string id = i.ToString();
+//    books.Add(new Book { Name = id, Id = id });
+//}
+    
+public object Deserialize()
+{    
     var formatter = new BinaryFormatter();
     var mem = new MemoryStream();
-    formatter.Serialize(mem, books);
+    formatter.Serialize(mem, _books);
     mem.Position = 0;
 
-    formatter.Deserialize(mem);
+    return formatter.Deserialize(mem);
 }
 ```
 
