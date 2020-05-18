@@ -49,11 +49,11 @@ public bool StringStartsWith()
 ### Deserialize:
 ```csharp
 
-//var books = new List<Book>();
+//var _books = new List<Book>();
 //for (int i = 0; i < 1_00000; i++)
 //{
 //    string id = i.ToString();
-//    books.Add(new Book { Name = id, Id = id });
+//    _books.Add(new Book { Name = id, Id = id });
 //}
     
 public object Deserialize()
