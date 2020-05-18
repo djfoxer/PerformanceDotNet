@@ -10,6 +10,7 @@ namespace djfoxer.DotNetFrameworkVsCore.Common
     [SimpleJob(RuntimeMoniker.Net48, baseline: true)]
     [SimpleJob(RuntimeMoniker.NetCoreApp31)]
     [SimpleJob(RuntimeMoniker.NetCoreApp50)]
+    [SimpleJob(RuntimeMoniker.Mono)]
     [RPlotExporter]
     [CsvMeasurementsExporter]
     [MarkdownExporterAttribute.GitHub]
@@ -31,27 +32,27 @@ namespace djfoxer.DotNetFrameworkVsCore.Common
         }
 
         [Benchmark]
-        public void Regex_Email()
+        public bool Regex_Email()
         {
-            _regexEmail.IsMatch(_commonInput);
+            return _regexEmail.IsMatch(_commonInput);
         }
 
         [Benchmark]
-        public void Regex_StrongPassword()
+        public bool Regex_StrongPassword()
         {
-            _regexStrongPassword.IsMatch(_commonInput);
+            return _regexStrongPassword.IsMatch(_commonInput);
         }
 
         [Benchmark]
-        public void Regex_SpanSearching()
+        public bool Regex_SpanSearching()
         {
-            _regexSpanSearching.IsMatch(_commonInput);
+            return _regexSpanSearching.IsMatch(_commonInput);
         }
 
         [Benchmark]
-        public void Regex_BackTracking()
+        public bool Regex_BackTracking()
         {
-            _regexBackTracking.IsMatch("aaaaaaaaaaaaaaaaaaaaa");
+            return _regexBackTracking.IsMatch("aaaaaaaaaaaaaaaaaaaaa");
         }
     }
 }

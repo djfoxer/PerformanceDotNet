@@ -12,6 +12,7 @@ namespace djfoxer.DotNetFrameworkVsCore.Common
     [SimpleJob(RuntimeMoniker.Net48, baseline: true)]
     [SimpleJob(RuntimeMoniker.NetCoreApp31)]
     [SimpleJob(RuntimeMoniker.NetCoreApp50)]
+    [SimpleJob(RuntimeMoniker.Mono)]
     [RPlotExporter]
     [CsvMeasurementsExporter]
     [MarkdownExporterAttribute.GitHub]
@@ -21,53 +22,57 @@ namespace djfoxer.DotNetFrameworkVsCore.Common
         byte[] _raw = new byte[100 * 1024 * 1024];
         SHA256 _sha = SHA256.Create();
         static string _s = "abcdefghijklmnopqrstuvwxyz";
+        List<BookToSerialize> _books = null;
 
         [GlobalSetup]
         public void BenchmarkSetup()
         {
             for (int index = 0; index < _raw.Length; index++) _raw[index] = (byte)index;
+
+            List<BookToSerialize> _books = null;
+            _books = new List<BookToSerialize>();
+            for (int i = 0; i < 1_00000; i++)
+            {
+                string id = i.ToString();
+                _books.Add(new BookToSerialize { Name = id, Id = id });
+            }
         }
 
         [Benchmark]
         public DayOfWeek EnumParse() => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), "Thursday");
 
         [Benchmark]
-        public void LinqOrderBySkipFirst()
+        public int LinqOrderBySkipFirst()
         {
-            _tenMillionToZero.OrderBy(i => i).Skip(4).First();
+            return _tenMillionToZero.OrderBy(i => i).Skip(4).First();
         }
 
         [Benchmark]
-        public void Sha256()
+        public byte[] Sha256()
         {
-            _sha.ComputeHash(_raw);
+            return _sha.ComputeHash(_raw);
         }
 
         [Benchmark]
-        public void StringStartsWith()
+        public bool StringStartsWith()
         {
+            var data = false;
             for (int i = 0; i < 100_000_000; i++)
             {
-                _s.StartsWith("abcdefghijklmnopqrstuvwxy-", StringComparison.Ordinal);
+                data = _s.StartsWith("abcdefghijklmnopqrstuvwxy-", StringComparison.Ordinal);
             }
+            return data;
         }
 
         [Benchmark]
-        public void Deserialize()
+        public object Deserialize()
         {
-            var books = new List<BookToSerialize>();
-            for (int i = 0; i < 1_00000; i++)
-            {
-                string id = i.ToString();
-                books.Add(new BookToSerialize { Name = id, Id = id });
-            }
-
             var formatter = new BinaryFormatter();
             var mem = new MemoryStream();
-            formatter.Serialize(mem, books);
+            formatter.Serialize(mem, _books);
             mem.Position = 0;
 
-            formatter.Deserialize(mem);
+            return formatter.Deserialize(mem);
         }
     }
 }
