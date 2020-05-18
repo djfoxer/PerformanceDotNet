@@ -112,6 +112,7 @@ _regexBackTracking.IsMatch("aaaaaaaaaaaaaaaaaaaaa");
 In first benchmark .NET Framework, .NET Core and .NET 5 were compared on Windows 10. Results, charts and more details with summary you can find here **[Benchmark #1: NET Framework (4.8) vs .NET Core (3.1.x) vs .NET 5 (preview 2) on Windows 10](doc/Benchmark_Windows_ClassicCoreNet5.md)**
 
 * Blog post about performance of multiple .NET runtimes on Windows 10 (and few details about differences between Intel and AMD) - [.NET Core is dead, long live the .NET Core (and .NET 5) and its performance](https://www.dobreprogramy.pl/djfoxer/Umarl-NET-Framework-niech-zyje-NET-Core-oraz-NET-i-jego-wydajnosc,105443.html) (only in Polish!)
+* Blog post based on DotNetFrameworkVsCore: [.NET Core vs .NET Framework: Testing Performance](https://www.softwarehut.com/blog/tech/net-core-vs-net-framework-testing-performance)
 
 # Benchmark experiment  #2: 
 ## Linux (Ubuntu 20.04) vs Windows 10: .NET Core (3.1.x), .NET 5 (preview 3) and Mono (6.8.0)
