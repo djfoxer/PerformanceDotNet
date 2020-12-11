@@ -9,18 +9,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "djfoxer.DotNetFrameworkVsCo
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Debug|x64.ActiveCfg = Debug|x64
+		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Debug|x64.Build.0 = Debug|x64
+		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Release|x64.ActiveCfg = Release|x64
+		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Release|x64.Build.0 = Release|x64
+		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Debug|x64.ActiveCfg = Debug|x64
+		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Debug|x64.Build.0 = Debug|x64
+		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Release|x64.ActiveCfg = Release|x64
+		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

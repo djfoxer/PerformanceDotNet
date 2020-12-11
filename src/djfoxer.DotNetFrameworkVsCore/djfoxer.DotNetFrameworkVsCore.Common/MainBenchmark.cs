@@ -29,7 +29,6 @@ namespace djfoxer.DotNetFrameworkVsCore.Common
         {
             for (int index = 0; index < _raw.Length; index++) _raw[index] = (byte)index;
 
-            List<BookToSerialize> _books = null;
             _books = new List<BookToSerialize>();
             for (int i = 0; i < 1_00000; i++)
             {
