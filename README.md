@@ -1,11 +1,11 @@
 # DotNetFrameworkVsCore - compare multiple .NET runtimes on various OS
-Small console application to compare performance of **.NET Framework (4.8), .NET Core (3.1.x), .NET 5 (preview) and Mono (6.8.0)**.
+Small console application to compare performance of **.NET Framework (4.8), .NET Core (3.1.x), .NET 5 and Mono (6.8.0)**.
 
-Common tests are written in .NET Standard. App contains 5 benchmarks to test performance of .NET Framework (4.8), .NET Core (3.1.x), .NET 5 (preview) and Mono (6.8.0). Another 4 benchmarks are related to regex performance. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
+Common tests are written in .NET Standard. App contains 5 benchmarks to test performance of .NET Framework (4.8), .NET Core (3.1.x), .NET 5 and Mono (6.8.0). Another 4 benchmarks are related to regex performance. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
 
  You can easily  check how fast/slow is .NET Framework/.NET Core/.NET 5/Mono. But we can do more. .NET Core, .NET 5 and Mono are **multi-platform runtimes**. It's very easy now to compare various .NET platform on **Windows and Linux**.
 
-**Try .NET 5 preview!** - .NET 5 is fresh, shiny and ready to test. To check new runtime you have to download [Visual Studio 2019 16.6.0 preview](https://visualstudio.microsoft.com/en/vs/preview/) and [.NET 5.0 Preview SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0). In this release .NET Team was focused to improve regex engine.
+**Try .NET 5** - .NET 5 is fresh, shiny and ready to test. To check new runtime you have to download [Visual Studio 2019 16.6.0+](https://visualstudio.microsoft.com/en/vs/) and [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0). In this release .NET Team was focused to improve regex engine.
 
 # Code details
 
