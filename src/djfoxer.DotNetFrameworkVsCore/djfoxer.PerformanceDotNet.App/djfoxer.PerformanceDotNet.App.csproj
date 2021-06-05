@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net5.0;netcoreapp3.1;net48</TargetFrameworks>
-    <Version>1.1.0</Version>
+    <TargetFrameworks>net6.0;net5.0;netcoreapp3.1;net48</TargetFrameworks>
+    <Version>1.2.0</Version>
     <Platforms>x64</Platforms>
   </PropertyGroup>
 
@@ -12,11 +12,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\djfoxer.DotNetFrameworkVsCore.Common\djfoxer.DotNetFrameworkVsCore.Common.csproj" />
+    <ProjectReference Include="..\djfoxer.PerformanceDotNet.Common\djfoxer.PerformanceDotNet.Common.csproj" />
   </ItemGroup>
 
 </Project>

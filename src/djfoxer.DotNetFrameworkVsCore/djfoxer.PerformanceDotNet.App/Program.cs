@@ -1,7 +1,7 @@
 ﻿using BenchmarkDotNet.Running;
-using djfoxer.DotNetFrameworkVsCore.Common;
+using djfoxer.PerformanceDotNet.Common;
 
-namespace djfoxer.DotNetFrameworkVsCore.App
+namespace djfoxer.PerformanceDotNet.App
 {
     class Program
     {

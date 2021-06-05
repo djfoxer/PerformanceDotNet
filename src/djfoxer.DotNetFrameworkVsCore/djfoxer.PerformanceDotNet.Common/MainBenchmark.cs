@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Order;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,12 +8,14 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 
-namespace djfoxer.DotNetFrameworkVsCore.Common
+namespace djfoxer.PerformanceDotNet.Common
 {
     [SimpleJob(RuntimeMoniker.Net48, baseline: true)]
     [SimpleJob(RuntimeMoniker.NetCoreApp31)]
-    [SimpleJob(RuntimeMoniker.NetCoreApp50)]
+    [SimpleJob(RuntimeMoniker.Net50)]
+    [SimpleJob(RuntimeMoniker.Net60)]
     [SimpleJob(RuntimeMoniker.Mono)]
+    [Orderer(SummaryOrderPolicy.Declared, MethodOrderPolicy.Declared)]
     [RPlotExporter]
     [CsvMeasurementsExporter]
     [MarkdownExporterAttribute.GitHub]
