@@ -1,20 +1,12 @@
 ﻿using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Jobs;
-using System.Reflection;
-using System.Resources;
+using djfoxer.PerformanceDotNet.Common.Helpers;
+using System;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace djfoxer.PerformanceDotNet.Common
 {
-    [SimpleJob(RuntimeMoniker.Net48, baseline: true)]
-    [SimpleJob(RuntimeMoniker.NetCoreApp31)]
-    [SimpleJob(RuntimeMoniker.Net50)]
-    [SimpleJob(RuntimeMoniker.Net60)]
-    [SimpleJob(RuntimeMoniker.Mono)]
-    [RPlotExporter]
-    [CsvMeasurementsExporter]
-    [MarkdownExporterAttribute.GitHub]
-    public class RegexBenchmark
+    public class RegexBenchmark : BaseBenchmark
     {
         string _commonInput = string.Empty;
         Regex _regexEmail, _regexStrongPassword, _regexSpanSearching, _regexBackTracking;
@@ -22,8 +14,13 @@ namespace djfoxer.PerformanceDotNet.Common
         [GlobalSetup]
         public void BenchmarkSetup()
         {
-            ResourceManager rm = new ResourceManager(typeof(RegexBenchmark).Namespace + ".Resources.InputResource", Assembly.GetExecutingAssembly());
-            _commonInput = rm.GetString("CSharpUseDeconstructionDiagnosticAnalyzer_cs", System.Globalization.CultureInfo.InvariantCulture);
+            var sb = new StringBuilder();
+            for (int i = 0; i < 550; i++)
+            {
+                sb.Append(Guid.NewGuid());
+                sb.Append("        ");
+            }
+            _commonInput = sb.ToString();
 
             _regexEmail = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", RegexOptions.Compiled);
             _regexStrongPassword = new Regex(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", RegexOptions.Compiled);

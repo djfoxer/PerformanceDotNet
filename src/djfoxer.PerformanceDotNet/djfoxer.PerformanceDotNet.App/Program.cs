@@ -9,6 +9,7 @@ namespace djfoxer.PerformanceDotNet.App
         {
             BenchmarkRunner.Run<RegexBenchmark>();
             BenchmarkRunner.Run<MainBenchmark>();
+            BenchmarkRunner.Run<FileStreamBenchmark>();
         }
     }
 }

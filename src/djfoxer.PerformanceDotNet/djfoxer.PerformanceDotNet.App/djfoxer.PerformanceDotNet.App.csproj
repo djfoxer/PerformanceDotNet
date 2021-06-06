@@ -5,6 +5,7 @@
     <TargetFrameworks>net6.0;net5.0;netcoreapp3.1;net48</TargetFrameworks>
     <Version>1.2.0</Version>
     <Platforms>x64</Platforms>
+    <StartupObject>djfoxer.PerformanceDotNet.App.Program</StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|x64'">
