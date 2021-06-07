@@ -1,0 +1,10 @@
+.vs\
+.vscode\
+djfoxer.PerformanceDotNet.App\bin\
+djfoxer.PerformanceDotNet.App\obj\
+djfoxer.PerformanceDotNet.App\BenchmarkDotNet.Artifacts\
+djfoxer.PerformanceDotNet.App\Properties\
+djfoxer.PerformanceDotNet.Common\bin\
+djfoxer.PerformanceDotNet.Common\obj\
+djfoxer.PerformanceDotNet.Common\BenchmarkDotNet.Artifacts\
+djfoxer.PerformanceDotNet.Common\Properties\

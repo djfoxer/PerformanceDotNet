@@ -1,15 +1,13 @@
 ﻿using BenchmarkDotNet.Running;
-using djfoxer.PerformanceDotNet.Common;
+using djfoxer.PerformanceDotNet.Common.Helpers;
 
 namespace djfoxer.PerformanceDotNet.App
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            BenchmarkRunner.Run<RegexBenchmark>();
-            BenchmarkRunner.Run<MainBenchmark>();
-            BenchmarkRunner.Run<FileStreamBenchmark>();
+            BenchmarkSwitcher.FromAssembly(typeof(BaseBenchmark).Assembly).Run(args);
         }
     }
 }
