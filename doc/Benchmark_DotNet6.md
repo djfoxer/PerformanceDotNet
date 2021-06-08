@@ -25,4 +25,4 @@ Intel Core i7-4702MQ CPU 2.20GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 | WriteAsync |      .NET Core 3.1 |      .NET Core 3.1 | 16.873 ms | 0.4392 ms | 1.2601 ms | 16.313 ms |  0.94 |    0.09 |
 | WriteAsync | .NET Framework 4.8 | .NET Framework 4.8 | 17.969 ms | 0.4371 ms | 1.2541 ms | 17.220 ms |  1.00 |    0.00 |
 
-![Chart](../img/w10_vs_linux/cmp_3_1.png)
+![Chart](../img/cmp_3_1.png)
