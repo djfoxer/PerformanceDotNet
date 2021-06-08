@@ -1,13 +1,13 @@
-# DotNetFrameworkVsCore - compare multiple .NET runtimes on various OS
-Small console application to compare performance of **.NET Framework (4.8), .NET Core (3.1.x), .NET 5 and Mono (6.8.0)**.
+# PerformanceDotNet - compare multiple .NET runtimes on various OS
+Small console application to compare performance of **.NET Framework (4.8), .NET Core (3.1.x), .NET 5, .NET 6 and Mono (6.8.0)**.
 
-Common tests are written in .NET Standard. App contains 5 benchmarks to test performance of .NET Framework (4.8), .NET Core (3.1.x), .NET 5, .NET 6 and Mono (6.8.0). Another 4 benchmarks are related to regex performance. FileStream tests present huge performance boost for file streaming in .NET 6. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
+Common tests are written in .NET Standard. App contains built in benchmarks to test performance of .NET Framework (4.8), .NET Core (3.1.x), .NET 5, .NET 6 and Mono (6.8.0). Another 4 benchmarks are related to regex performance. FileStream tests present huge performance boost for file streaming in .NET 6. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
 
  You can easily  check how fast/slow is .NET Framework/.NET Core/.NET 5(6)/Mono. But we can do more. .NET Core, .NET 5, 6 and Mono are **multi-platform runtimes**. It's very easy now to compare various .NET platform on **Windows and Linux**.
 
 # Code details
 
-DotNetFrameworkVsCore contains multiple test to compare .NET performance. Each of method can be run on .NET Framework, .NET Core, .NET 5, .NET 6,  Mono and are fully compatible with Windows and Linux (should also run on MacOS).
+PerformanceDotNet (old name DotNetFrameworkVsCore) contains multiple test to compare .NET performance. Each of method can be run on .NET Framework, .NET Core, .NET 5, .NET 6,  Mono and are fully compatible with Windows and Linux (should also run on MacOS).
 
 ### Enum:
 ```csharp
@@ -128,14 +128,15 @@ using (var fileStream = new FileStream(_fileName, FileMode.Create, FileAccess.Wr
 ```  
 # Benchmark experiment  #3 [07.06.2021]:
 
-.NET 6 Preview 4 is now available in BenchmarkDotNet. New SDK brings huge FileStream performance boost.
+.NET 6 Preview 4 is now available. New SDK brings huge FileStream performance boost (up to 4x faster ), check it out: **[.NET 6 FileStream Boos Details](Benchmark_DotNet6.md)**.
 
+![logo](img/ben3.png)
 
 
 # Benchmark experiment  #2 [17.05.2020]: 
 ## Linux (Ubuntu 20.04) vs Windows 10: .NET Core (3.1.x), .NET 5 (preview 3) and Mono (6.8.0)
 
-![Chart](img/ben2.png)
+![logo](img/ben2.png)
 
 In this benchmark multi-platform .NET runtimes were compared on Windows 10 and Linux (Ubunru 20.04). .NET Core, .NET 5 and Mono were taken to tests. Results, charts and more details with summary you can find here **[Benchmark #2: Linux (Ubuntu 20.04) vs Windows 10 and multi-platform .NET (.NET Core, .NET 5 and Mono)](doc/Benchmark_WindowsLinux_CoreNet5Mono.md)**
 
@@ -144,12 +145,12 @@ In this benchmark multi-platform .NET runtimes were compared on Windows 10 and L
 # Benchmark experiment  #1 [09.05.2020]: 
 ## .NET Framework (4.8) vs .NET Core (3.1.x) vs .NET 5 (preview 2) on Windows 10 (and Intel vs AMD)
 
-![Chart](img/ben1.png)
+![logo](img/ben1.png)
 
 In first benchmark .NET Framework, .NET Core and .NET 5 were compared on Windows 10. Results, charts and more details with summary you can find here **[Benchmark #1: NET Framework (4.8) vs .NET Core (3.1.x) vs .NET 5 (preview 2) on Windows 10](doc/Benchmark_Windows_ClassicCoreNet5.md)**
 
 * Blog post about performance of multiple .NET runtimes on Windows 10 (and few details about differences between Intel and AMD) - [.NET Core is dead, long live the .NET Core (and .NET 5) and its performance](https://www.dobreprogramy.pl/djfoxer/Umarl-NET-Framework-niech-zyje-NET-Core-oraz-NET-i-jego-wydajnosc,105443.html) (only in Polish!)
-* Blog post based on DotNetFrameworkVsCore: [.NET Core vs .NET Framework: Testing Performance](https://www.softwarehut.com/blog/tech/net-core-vs-net-framework-testing-performance)
+* Blog post based on PerformanceDotNet: [.NET Core vs .NET Framework: Testing Performance](https://www.softwarehut.com/blog/tech/net-core-vs-net-framework-testing-performance)
 
 
 

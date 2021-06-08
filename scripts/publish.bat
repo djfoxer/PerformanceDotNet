@@ -2,7 +2,7 @@ REM delete old artifact folder
 rmdir /s/q artifact
 mkdir artifact
 REM build app
-dotnet publish "../src/djfoxer.PerformanceDotNet/djfoxer.PerformanceDotNet.App" -c Release -o artifact/bin/exe -f net5.0 -r win-x64 -p:PublishSingleFile=true
+dotnet publish "../src/djfoxer.PerformanceDotNet/djfoxer.PerformanceDotNet.App" -c Release -o artifact/bin/exe -f net5.0 -r win-x64
 REM copy src
 Xcopy /S /I /E /Q "../src/djfoxer.PerformanceDotNet" "artifact/bin" /exclude:xcopy_exclude.txt
 REM create run.bat script
