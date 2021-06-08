@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net6.0;net5.0;netcoreapp3.1;net48</TargetFrameworks>
+    <Version>1.2.0</Version>
+    <Platforms>x64</Platforms>
+    <StartupObject>djfoxer.PerformanceDotNet.App.Program</StartupObject>
+    <Authors>djfoxer</Authors>
+    <Company>djfoxer</Company>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\djfoxer.PerformanceDotNet.Common\djfoxer.PerformanceDotNet.Common.csproj" />
+  </ItemGroup>
+
+</Project>

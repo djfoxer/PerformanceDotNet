@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Jobs;
+using djfoxer.PerformanceDotNet.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,27 +7,21 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 
-namespace djfoxer.DotNetFrameworkVsCore.Common
+namespace djfoxer.PerformanceDotNet.Common
 {
-    [SimpleJob(RuntimeMoniker.Net48, baseline: true)]
-    [SimpleJob(RuntimeMoniker.NetCoreApp31)]
-    [SimpleJob(RuntimeMoniker.NetCoreApp50)]
-    [SimpleJob(RuntimeMoniker.Mono)]
-    [RPlotExporter]
-    [CsvMeasurementsExporter]
-    [MarkdownExporterAttribute.GitHub]
-    public class MainBenchmark
+
+    public class MainBenchmark : BaseBenchmark
     {
         IEnumerable<int> _tenMillionToZero = Enumerable.Range(0, 10_000_000).Reverse();
-        byte[] _raw = new byte[100 * 1024 * 1024];
-        SHA256 _sha = SHA256.Create();
-        static string _s = "abcdefghijklmnopqrstuvwxyz";
+        byte[] _rawBytes = new byte[100 * 1024 * 1024];
+        HashAlgorithm _sha = SHA256.Create();
+        static string StringToTest = "abcdefghijklmnopqrstuvwxyz";
         List<BookToSerialize> _books = null;
 
         [GlobalSetup]
         public void BenchmarkSetup()
         {
-            for (int index = 0; index < _raw.Length; index++) _raw[index] = (byte)index;
+            for (int index = 0; index < _rawBytes.Length; index++) _rawBytes[index] = (byte)index;
 
             _books = new List<BookToSerialize>();
             for (int i = 0; i < 1_00000; i++)
@@ -49,7 +43,7 @@ namespace djfoxer.DotNetFrameworkVsCore.Common
         [Benchmark]
         public byte[] Sha256()
         {
-            return _sha.ComputeHash(_raw);
+            return _sha.ComputeHash(_rawBytes);
         }
 
         [Benchmark]
@@ -58,7 +52,7 @@ namespace djfoxer.DotNetFrameworkVsCore.Common
             var data = false;
             for (int i = 0; i < 100_000_000; i++)
             {
-                data = _s.StartsWith("abcdefghijklmnopqrstuvwxy-", StringComparison.Ordinal);
+                data = StringToTest.StartsWith("abcdefghijklmnopqrstuvwxy-", StringComparison.Ordinal);
             }
             return data;
         }

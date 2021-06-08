@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace djfoxer.DotNetFrameworkVsCore.Common
+namespace djfoxer.PerformanceDotNet.Common.Helpers
 {
     [Serializable]
     public class BookToSerialize
