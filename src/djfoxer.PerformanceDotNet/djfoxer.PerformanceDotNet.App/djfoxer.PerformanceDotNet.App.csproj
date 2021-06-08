@@ -6,6 +6,8 @@
     <Version>1.2.0</Version>
     <Platforms>x64</Platforms>
     <StartupObject>djfoxer.PerformanceDotNet.App.Program</StartupObject>
+    <Authors>djfoxer</Authors>
+    <Company>djfoxer</Company>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|x64'">

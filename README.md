@@ -131,6 +131,7 @@ using (var fileStream = new FileStream(_fileName, FileMode.Create, FileAccess.Wr
 .NET 6 Preview 4 is now available in BenchmarkDotNet. New SDK brings huge FileStream performance boost.
 
 
+
 # Benchmark experiment  #2 [17.05.2020]: 
 ## Linux (Ubuntu 20.04) vs Windows 10: .NET Core (3.1.x), .NET 5 (preview 3) and Mono (6.8.0)
 
