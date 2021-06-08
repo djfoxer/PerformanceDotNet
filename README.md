@@ -128,7 +128,7 @@ using (var fileStream = new FileStream(_fileName, FileMode.Create, FileAccess.Wr
 ```  
 # Benchmark experiment  #3 [07.06.2021]:
 
-.NET 6 Preview 4 is now available. New SDK brings huge FileStream performance boost (up to 4x faster ), check it out: **[.NET 6 FileStream Boos Details](doc/Benchmark_DotNet6.md)**.
+.NET 6 Preview 4 is now available. New SDK brings huge FileStream performance boost (up to 4x faster ), check it out: **[.NET 6 FileStream Boost Details](doc/Benchmark_DotNet6.md)**.
 
 ![logo](img/ben3.png)
 
