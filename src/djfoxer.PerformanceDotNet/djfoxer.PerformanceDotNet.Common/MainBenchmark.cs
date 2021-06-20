@@ -21,8 +21,10 @@ namespace djfoxer.PerformanceDotNet.Common
         [GlobalSetup]
         public void BenchmarkSetup()
         {
+            //Sha256
             for (int index = 0; index < _rawBytes.Length; index++) _rawBytes[index] = (byte)index;
 
+            //Deserialize
             _books = new List<BookToSerialize>();
             for (int i = 0; i < 1_00000; i++)
             {
@@ -30,9 +32,6 @@ namespace djfoxer.PerformanceDotNet.Common
                 _books.Add(new BookToSerialize { Name = id, Id = id });
             }
         }
-
-        [Benchmark]
-        public DayOfWeek EnumParse() => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), "Thursday");
 
         [Benchmark]
         public int LinqOrderBySkipFirst()
@@ -67,5 +66,7 @@ namespace djfoxer.PerformanceDotNet.Common
 
             return formatter.Deserialize(mem);
         }
+
+
     }
 }
