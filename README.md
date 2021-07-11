@@ -9,6 +9,30 @@ Common tests are written in .NET Standard. App contains built in benchmarks to t
 
 PerformanceDotNet (old name DotNetFrameworkVsCore) contains multiple test to compare .NET performance. Each of method can be run on .NET Framework, .NET Core, .NET 5, .NET 6,  Mono and are fully compatible with Windows and Linux (should also run on MacOS).
 
+Performance benchmarks tree:
+
+````
+djfoxer
+ └─PerformanceDotNet
+    └─Common
+       ├─FileStreamBenchmark
+       │  ├─ReadAsync
+       │  └─WriteAsync
+       ├─MainBenchmark
+       │  ├─LinqOrderBySkipFirst
+       │  ├─Sha256
+       │  ├─StringStartsWith
+       │  └─Deserialize
+       ├─ParseBenchmark
+       │  ├─EnumParse
+       │  └─ParseBigInt
+       └─RegexBenchmark
+          ├─Regex_Email
+          ├─Regex_StrongPassword
+          ├─Regex_SpanSearching
+          └─Regex_BackTracking
+````
+
 ### Enum:
 ```csharp
 public DayOfWeek EnumParse() => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), "Thursday");
