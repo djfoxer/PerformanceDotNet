@@ -29,7 +29,7 @@ Intel Core i7-4702MQ CPU 2.20GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 
 ![Chart](../img/cmp_3_1.png)
 
-## BigInt parse results
+## BigInteger parse results
 
 ``` ini
 
