@@ -12,27 +12,26 @@ namespace djfoxer.PerformanceDotNet.Common
 
     public class MainBenchmark : BaseBenchmark
     {
-        IEnumerable<int> _tenMillionToZero = Enumerable.Range(0, 10_000_000).Reverse();
-        byte[] _rawBytes = new byte[100 * 1024 * 1024];
-        HashAlgorithm _sha = SHA256.Create();
-        static string StringToTest = "abcdefghijklmnopqrstuvwxyz";
-        List<BookToSerialize> _books = null;
+        readonly IEnumerable<int> _tenMillionToZero = Enumerable.Range(0, 10_000_000).Reverse();
+        readonly byte[] _rawBytes = new byte[100 * 1024 * 1024];
+        readonly HashAlgorithm _sha = SHA256.Create();
+        const string StringToTest = "abcdefghijklmnopqrstuvwxyz";
+        readonly List<BookToSerialize> _books = new List<BookToSerialize>();
 
         [GlobalSetup]
         public void BenchmarkSetup()
         {
+            //Sha256
             for (int index = 0; index < _rawBytes.Length; index++) _rawBytes[index] = (byte)index;
 
-            _books = new List<BookToSerialize>();
+            //Deserialize
+            _books.Clear();
             for (int i = 0; i < 1_00000; i++)
             {
                 string id = i.ToString();
                 _books.Add(new BookToSerialize { Name = id, Id = id });
             }
         }
-
-        [Benchmark]
-        public DayOfWeek EnumParse() => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), "Thursday");
 
         [Benchmark]
         public int LinqOrderBySkipFirst()
@@ -67,5 +66,7 @@ namespace djfoxer.PerformanceDotNet.Common
 
             return formatter.Deserialize(mem);
         }
+
+
     }
 }

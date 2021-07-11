@@ -7,9 +7,9 @@ namespace djfoxer.PerformanceDotNet.Common
 {
     public class FileStreamBenchmark : BaseBenchmark
     {
-        static int FileSize = 1_000_000;
-        static string _fileName = "file.txt";
-        byte[] _buffer = new byte[8_000];
+        const int FileSize = 1_000_000;
+        const string _fileName = "file.txt";
+        readonly byte[] _buffer = new byte[8_000];
 
         [GlobalSetup(Target = nameof(ReadAsync))]
         public void SetupRead() => File.WriteAllBytes(_fileName, new byte[FileSize]);
