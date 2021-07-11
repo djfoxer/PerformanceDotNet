@@ -44,6 +44,13 @@ public bool StringStartsWith()
 }
 ```
 
+### BigInt:
+```csharp
+// _bingIntToParse = string.Concat(Enumerable.Repeat("654719003", 50));
+
+public BigInteger ParseBigInt() => BigInteger.Parse(_bingIntToParse);
+```
+
 ### Deserialize:
 ```csharp
 
@@ -126,9 +133,9 @@ using (var fileStream = new FileStream(_fileName, FileMode.Create, FileAccess.Wr
     }
 }
 ```  
-# Benchmark experiment  #3 [07.06.2021]:
+# Benchmark experiment  #3 [11.07.2021]:
 
-.NET 6 Preview 4 is now available. New SDK brings huge FileStream performance boost (up to 4x faster ), check it out: **[.NET 6 FileStream Boost Details](doc/Benchmark_DotNet6.md)**.
+.NET 6 Preview 4 is now available. New SDK brings huge performance boost in FileStream (up to 4x faster) and BigInteger parser (up to 16x faster), check it out: **[.NET 6 Boost Details](doc/Benchmark_DotNet6.md)**.
 
 ![logo](img/ben3.png)
 

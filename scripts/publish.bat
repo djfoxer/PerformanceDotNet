@@ -6,7 +6,7 @@ dotnet publish "../src/djfoxer.PerformanceDotNet/djfoxer.PerformanceDotNet.App" 
 REM copy src
 Xcopy /S /I /E /Q "../src/djfoxer.PerformanceDotNet" "artifact/bin" /exclude:xcopy_exclude.txt
 REM create run.bat script
-echo .\bin\exe\djfoxer.PerformanceDotNet.App.exe > artifact/run.bat
+echo .\bin\exe\djfoxer.PerformanceDotNet.App.exe %%^* > artifact/run.bat
 REM open artifact folder
 cd artifact
 REM get exe version

@@ -1,4 +1,6 @@
-# .NET 6 FileStream Performance Boost
+# .NET 6 Performance Boost
+
+## FileStream results
 
 ``` ini
 
@@ -26,3 +28,27 @@ Intel Core i7-4702MQ CPU 2.20GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 | WriteAsync | .NET Framework 4.8 | .NET Framework 4.8 | 17.969 ms | 0.4371 ms | 1.2541 ms | 17.220 ms |  1.00 |    0.00 |
 
 ![Chart](../img/cmp_3_1.png)
+
+## BigInt parse results
+
+``` ini
+
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19043.1083 (21H1/May2021Update)
+Intel Core i7-4702MQ CPU 2.20GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET SDK=6.0.100-preview.5.21302.13
+  [Host]             : .NET 5.0.5 (5.0.521.16609), X64 RyuJIT
+  .NET 5.0           : .NET 5.0.7 (5.0.721.25508), X64 RyuJIT
+  .NET 6.0           : .NET 6.0.0 (6.0.21.30105), X64 RyuJIT
+  .NET Core 3.1      : .NET Core 3.1.16 (CoreCLR 4.700.21.26205, CoreFX 4.700.21.26205), X64 RyuJIT
+  .NET Framework 4.8 : .NET Framework 4.8 (4.8.4390.0), X64 RyuJIT
+
+
+```
+|      Method |                Job |            Runtime |      Mean |     Error |    StdDev | Ratio |
+|------------ |------------------- |------------------- |----------:|----------:|----------:|------:|
+| ParseBigInt |           .NET 5.0 |           .NET 5.0 | 71.578 μs | 0.7426 μs | 0.6947 μs |  0.76 |
+| ParseBigInt |           .NET 6.0 |           .NET 6.0 |  5.538 μs | 0.0555 μs | 0.0520 μs |  0.06 |
+| ParseBigInt |      .NET Core 3.1 |      .NET Core 3.1 | 90.957 μs | 0.4245 μs | 0.3970 μs |  0.97 |
+| ParseBigInt | .NET Framework 4.8 | .NET Framework 4.8 | 93.959 μs | 0.8641 μs | 0.8082 μs |  1.00 |
+
+![Chart](../img/cmp_3_2.png)
