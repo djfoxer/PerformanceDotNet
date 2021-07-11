@@ -23,6 +23,6 @@ namespace djfoxer.PerformanceDotNet.Common
 
         [Benchmark]
         [ArgumentsSource(nameof(BingIntToParse))]
-        public BigInteger Parse(string numberString) => BigInteger.Parse(numberString);
+        public BigInteger ParseBigInt(string numberString) => BigInteger.Parse(numberString);
     }
 }
