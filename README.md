@@ -1,7 +1,8 @@
 # PerformanceDotNet - compare multiple .NET runtimes on various OS
+[![.NET](https://github.com/djfoxer/PerformanceDotNet/actions/workflows/dotnet.yml/badge.svg)](https://github.com/djfoxer/PerformanceDotNet/actions/workflows/dotnet.yml)
+
 Small console application to compare performance of **.NET Framework (4.8), .NET Core (3.1.x), .NET 5, .NET 6 and Mono (6.8.0)**.
 
-[![.NET](https://github.com/djfoxer/PerformanceDotNet/actions/workflows/dotnet.yml/badge.svg)](https://github.com/djfoxer/PerformanceDotNet/actions/workflows/dotnet.yml)
 
 Common tests are written in .NET Standard. App contains built in benchmarks to test performance of .NET Framework (4.8), .NET Core (3.1.x), .NET 5, .NET 6 and Mono (6.8.0). Another 4 benchmarks are related to regex performance. FileStream tests present huge performance boost for file streaming in .NET 6. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
 
