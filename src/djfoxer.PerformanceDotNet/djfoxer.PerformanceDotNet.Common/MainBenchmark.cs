@@ -12,11 +12,11 @@ namespace djfoxer.PerformanceDotNet.Common
 
     public class MainBenchmark : BaseBenchmark
     {
-        IEnumerable<int> _tenMillionToZero = Enumerable.Range(0, 10_000_000).Reverse();
-        byte[] _rawBytes = new byte[100 * 1024 * 1024];
-        HashAlgorithm _sha = SHA256.Create();
-        static string StringToTest = "abcdefghijklmnopqrstuvwxyz";
-        List<BookToSerialize> _books = null;
+        readonly IEnumerable<int> _tenMillionToZero = Enumerable.Range(0, 10_000_000).Reverse();
+        readonly byte[] _rawBytes = new byte[100 * 1024 * 1024];
+        readonly HashAlgorithm _sha = SHA256.Create();
+        const string StringToTest = "abcdefghijklmnopqrstuvwxyz";
+        readonly List<BookToSerialize> _books = new List<BookToSerialize>();
 
         [GlobalSetup]
         public void BenchmarkSetup()
@@ -25,7 +25,7 @@ namespace djfoxer.PerformanceDotNet.Common
             for (int index = 0; index < _rawBytes.Length; index++) _rawBytes[index] = (byte)index;
 
             //Deserialize
-            _books = new List<BookToSerialize>();
+            _books.Clear();
             for (int i = 0; i < 1_00000; i++)
             {
                 string id = i.ToString();
