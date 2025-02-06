@@ -17,7 +17,10 @@ Performance benchmarks tree:
 ````
 djfoxer
  └─PerformanceDotNet
-    └─Common
+    └─Benchmark
+       ├─Helpers
+       │  ├─BaseBenchmark
+       │  └─BookToSerialize
        ├─FileStreamBenchmark
        │  ├─ReadAsync
        │  └─WriteAsync
@@ -25,7 +28,8 @@ djfoxer
        │  ├─LinqOrderBySkipFirst
        │  ├─Sha256
        │  ├─StringStartsWith
-       │  └─Deserialize
+       │  ├─DesrializeSystemTextJson
+       │  └─DesrializeNewtonsoftJson
        ├─ParseBenchmark
        │  ├─EnumParse
        │  └─ParseBigInt
@@ -78,7 +82,7 @@ public bool StringStartsWith()
 public BigInteger ParseBigInt() => BigInteger.Parse(_bingIntToParse);
 ```
 
-### Deserialize:
+### Deserialize System.Text.Json & Newtonsoft.Json:
 ```csharp
 
 //var _books = new List<Book>();
@@ -88,14 +92,16 @@ public BigInteger ParseBigInt() => BigInteger.Parse(_bingIntToParse);
 //    _books.Add(new Book { Name = id, Id = id });
 //}
     
-public object Deserialize()
-{    
-    var formatter = new BinaryFormatter();
-    var mem = new MemoryStream();
-    formatter.Serialize(mem, _books);
-    mem.Position = 0;
+public object DesrializeSystemTextJson()
+{
+    var json = System.Text.Json.JsonSerializer.Serialize(_books);
+    return System.Text.Json.JsonSerializer.Deserialize<List<BookToSerialize>>(json);
+}
 
-    return formatter.Deserialize(mem);
+public object DesrializeNewtonsoftJson()
+{
+    var json = JsonConvert.SerializeObject(_books);
+    return JsonConvert.DeserializeObject<List<BookToSerialize>>(json);
 }
 ```
 
@@ -159,7 +165,14 @@ using (var fileStream = new FileStream(_fileName, FileMode.Create, FileAccess.Wr
         await fileStream.WriteAsync(_buffer, 0, _buffer.Length);
     }
 }
-```  
+```
+
+# Benchmark experiment  #4 [06.02.2025]:
+
+Hi! I'm back. Not new experiment but brings huge upgrade for the project - read more in changelog: [release 1.3.0](https://github.com/djfoxer/PerformanceDotNet/releases/tag/1.3.0)
+
+![logo](img/ben4.jpg)
+  
 # Benchmark experiment  #3 [11.07.2021]:
 
 .NET 6 Preview 4 is now available. New SDK brings huge performance boost in FileStream (up to 4x faster) and BigInteger parser (up to 16x faster), check it out: **[.NET 6 Boost Details](doc/Benchmark_DotNet6.md)**.
