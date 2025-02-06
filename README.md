@@ -1,7 +1,7 @@
 # PerformanceDotNet - compare multiple .NET runtimes on various OS
 [![.NET](https://github.com/djfoxer/PerformanceDotNet/actions/workflows/dotnet.yml/badge.svg)](https://github.com/djfoxer/PerformanceDotNet/actions/workflows/dotnet.yml)
 
-Small console application to compare performance of **.NET Framework (4.8.1), .NET 8 and .NET 9 **.
+Small console application to compare performance of **.NET Framework (4.8.1), .NET 8 and .NET 9**.
 
 
 Common tests are written in .NET Standard. App contains built in benchmarks to test performance of .NET Framework (4.8.1), .NET 8 and .NET 9. Another 4 benchmarks are related to regex performance. FileStream tests present huge performance boost for file streaming in .NET. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
