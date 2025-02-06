@@ -169,7 +169,7 @@ using (var fileStream = new FileStream(_fileName, FileMode.Create, FileAccess.Wr
 
 # Benchmark experiment  #4 [06.02.2025]:
 
-Hi! I'm back. Not new experiment but brings huge upgrade for the project - read more in changelog: [release 1.3.0](https://github.com/djfoxer/PerformanceDotNet/releases/tag/1.3.0)
+Hi! I'm back. Not new experiment but brings huge upgrade for the project - read more in changelog: [release 1.3.1](https://github.com/djfoxer/PerformanceDotNet/releases/tag/1.3.1)
 
 ![logo](img/ben4.jpg)
   
