@@ -1,16 +1,16 @@
 # PerformanceDotNet - compare multiple .NET runtimes on various OS
 [![.NET](https://github.com/djfoxer/PerformanceDotNet/actions/workflows/dotnet.yml/badge.svg)](https://github.com/djfoxer/PerformanceDotNet/actions/workflows/dotnet.yml)
 
-Small console application to compare performance of **.NET Framework (4.8), .NET Core (3.1.x), .NET 5, .NET 6 and Mono (6.8.0)**.
+Small console application to compare performance of **.NET Framework (4.8.1), .NET 8 and .NET 9 **.
 
 
-Common tests are written in .NET Standard. App contains built in benchmarks to test performance of .NET Framework (4.8), .NET Core (3.1.x), .NET 5, .NET 6 and Mono (6.8.0). Another 4 benchmarks are related to regex performance. FileStream tests present huge performance boost for file streaming in .NET 6. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
+Common tests are written in .NET Standard. App contains built in benchmarks to test performance of .NET Framework (4.8.1), .NET 8 and .NET 9. Another 4 benchmarks are related to regex performance. FileStream tests present huge performance boost for file streaming in .NET. Results taken by [BenchmarkDotNet](https://benchmarkdotnet.org/).
 
- You can easily  check how fast/slow is .NET Framework/.NET Core/.NET 5(6)/Mono. But we can do more. .NET Core, .NET 5, 6 and Mono are **multi-platform runtimes**. It's very easy now to compare various .NET platform on **Windows and Linux**.
+ You can easily  check how fast/slow is .NET Framework/.NET 8/.NET 9. But we can do more. .NET 8 and .NET 9 are **multi-platform runtimes**. It's very easy now to compare various .NET platform on **Windows and Linux**.
 
 # Code details
 
-PerformanceDotNet (old name DotNetFrameworkVsCore) contains multiple test to compare .NET performance. Each of method can be run on .NET Framework, .NET Core, .NET 5, .NET 6,  Mono and are fully compatible with Windows and Linux (should also run on MacOS).
+PerformanceDotNet (old name DotNetFrameworkVsCore) contains multiple test to compare .NET performance. Each of method can be run on .NET Framework, .NET 8, .NET 9 and are fully compatible with Windows and Linux (should also run on MacOS).
 
 Performance benchmarks tree:
 
