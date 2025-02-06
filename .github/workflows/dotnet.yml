@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '9.x.x'
         include-prerelease: true
     - name: Restore dependencies
       run: dotnet restore src/djfoxer.PerformanceDotNet/djfoxer.PerformanceDotNet.sln
