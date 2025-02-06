@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Running;
-using djfoxer.PerformanceDotNet.Common.Helpers;
+using djfoxer.PerformanceDotNet.App.Benchmark.Helpers;
 
 namespace djfoxer.PerformanceDotNet.App
 {

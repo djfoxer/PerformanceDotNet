@@ -2,24 +2,20 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net6.0;net5.0;netcoreapp3.1;net48</TargetFrameworks>
-    <Version>1.2.2</Version>
+	  <TargetFrameworks>net9.0;net8.0;net48</TargetFrameworks>
+    <Version>1.3.0</Version>
     <Platforms>x64</Platforms>
     <StartupObject>djfoxer.PerformanceDotNet.App.Program</StartupObject>
     <Authors>djfoxer</Authors>
     <Company>djfoxer</Company>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|x64'">
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.13.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\djfoxer.PerformanceDotNet.Common\djfoxer.PerformanceDotNet.Common.csproj" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.14.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Text.Json" Version="9.0.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="9.0.1" />
+    <PackageReference Include="System.Reflection.Metadata" Version="9.0.1" />
   </ItemGroup>
 
 </Project>

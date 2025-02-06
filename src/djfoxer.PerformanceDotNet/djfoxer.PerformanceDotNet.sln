@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29806.167
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "djfoxer.PerformanceDotNet.App", "djfoxer.PerformanceDotNet.App\djfoxer.PerformanceDotNet.App.csproj", "{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "djfoxer.PerformanceDotNet.Common", "djfoxer.PerformanceDotNet.Common\djfoxer.PerformanceDotNet.Common.csproj", "{82DC22FF-E190-461F-94C4-5AC5A23A0575}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Debug|x64.Build.0 = Debug|x64
 		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Release|x64.ActiveCfg = Release|x64
 		{620B4FDF-F949-44DE-AB5A-846E87D7C8A5}.Release|x64.Build.0 = Release|x64
-		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Debug|x64.ActiveCfg = Debug|x64
-		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Debug|x64.Build.0 = Debug|x64
-		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Release|x64.ActiveCfg = Release|x64
-		{82DC22FF-E190-461F-94C4-5AC5A23A0575}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
